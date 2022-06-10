@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Hello');
+    return Inertia::render('Home');
 });
 
 Route::get('/users', function () {
