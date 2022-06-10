@@ -1,9 +1,10 @@
 <template>
-  <h1 class="text-3xl font-bold">Settings</h1>
+  <Layout>
+    <h1 class="text-3xl">Settings</h1>
+  </Layout>
 
-  <Nav/>
 </template>
 
 <script setup>
-import Nav from '../Shared/Nav'
+import Layout from '../Shared/Layout'
 </script>

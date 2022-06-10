@@ -8,8 +8,6 @@
     @inertiaHead
 </head>
 <body>
-<section class="max-w-5xl mx-auto py-8">
-    @inertia
-</section>
+@inertia
 </body>
 </html>
