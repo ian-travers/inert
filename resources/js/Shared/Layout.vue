@@ -1,7 +1,10 @@
 <template>
   <section class="p-6 bg-slate-200">
     <header class="flex items-center justify-between bg-slate-200">
-      <h1>My App</h1>
+      <div class="flex items-baseline">
+        <h1 class="text-xl">My App</h1>
+        <p class="text-sm ml-2">Welcome back, {{ username }}</p>
+      </div>
       <Nav/>
     </header>
   </section>
@@ -13,5 +16,9 @@
 </template>
 
 <script setup>
-import Nav from "./Nav";
+import Nav from "./Nav"
+import { Inertia } from '@inertiajs/inertia'
+import { computed } from "vue";
+
+const username = computed(() => Inertia.page.props.auth.user.username)
 </script>
