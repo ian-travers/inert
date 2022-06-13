@@ -6,8 +6,8 @@ import Layout from './Shared/Layout'
 InertiaProgress.init({showSpinner: true})
 
 createInertiaApp({
-  resolve: name => {
-    const page = require(`./Pages/${name}`).default
+  resolve: async name => {
+    const page = (await import(`./Pages/${name}`)).default
     page.layout = page.layout || Layout
 
     return page
