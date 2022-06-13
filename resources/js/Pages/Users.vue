@@ -10,12 +10,40 @@
 
   <h1 class="text-3xl">Users</h1>
   <div class="mt-4">
-    <ul>
-      <li v-for="user in users" :key="user.id" v-text="user.name"></li>
-    </ul>
+
+    <div class="mt-8 flex flex-col">
+      <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+          <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+            <table class="min-w-full divide-y divide-slate-300">
+              <tbody class="divide-y divide-slate-200 bg-white">
+              <tr v-for="user in users.data" :key="user.id">
+                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">
+                  {{ user.name }}
+                </td>
+                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                  <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">
+                    Edit
+                    <span class="sr-only">, {{ user.name }}</span>
+                  </Link>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  paginator-->
+  <div class="mt-6">
+    <Pagination :links="users.links"/>
   </div>
 </template>
 
 <script setup>
-defineProps({ users: Array })
+import Pagination from "../Shared/Pagination";
+
+defineProps({ users: Object })
 </script>
