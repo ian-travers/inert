@@ -9,11 +9,13 @@
   </Head>
 
   <div class="flex justify-between">
-    <h1 class="text-2xl">Users</h1>
+    <div class="flex items-baseline">
+      <h1 class="text-2xl">Users</h1>
+      <Link href="/users/create" class="text-blue-500 text-sm hover:underline ml-2">New User</Link>
+    </div>
     <input v-model="search" type="text" placeholder="Search..." class="border rounded-lg px-2">
   </div>
   <div class="mt-4">
-
     <div class="mt-8 flex flex-col">
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -38,8 +40,7 @@
       </div>
     </div>
   </div>
-
-  <!--  paginator-->
+  <!-- paginator -->
   <div class="mt-6">
     <Pagination :links="users.links"/>
   </div>
