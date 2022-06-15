@@ -8,7 +8,10 @@ InertiaProgress.init({showSpinner: true})
 createInertiaApp({
   resolve: async name => {
     const page = (await import(`./Pages/${name}`)).default
-    page.layout = page.layout || Layout
+
+    if (page.layout === undefined) {
+      page.layout = Layout
+    }
 
     return page
   },
