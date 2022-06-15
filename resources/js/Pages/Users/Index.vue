@@ -11,7 +11,7 @@
   <div class="flex justify-between">
     <div class="flex items-baseline">
       <h1 class="text-2xl">Users</h1>
-      <Link href="/users/create" class="text-blue-500 text-sm hover:underline ml-2">New User</Link>
+      <Link v-if="can.createUser" href="/users/create" class="text-blue-500 text-sm hover:underline ml-2">New User</Link>
     </div>
     <input v-model="search" type="text" placeholder="Search..." class="border rounded-lg px-2">
   </div>
@@ -26,7 +26,7 @@
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">
                   {{ user.name }}
                 </td>
-                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                <td v-if="user.can.edit" class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">
                     Edit
                     <span class="sr-only">, {{ user.name }}</span>
@@ -55,6 +55,7 @@ import debounce from "lodash/debounce";
 let props = defineProps({
   users: Object,
   filters: Object,
+  can: Object
 })
 
 let search = ref(props.filters.search)
