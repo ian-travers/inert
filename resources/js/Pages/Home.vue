@@ -70,14 +70,13 @@
         <div class="fixed inset-0 bg-black bg-opacity-40"/>
       </TransitionChild>
 
-      <div class="fixed inset-0 overflow-y-auto">
+      <div class="fixed inset-0 overflow-y-auto animate-su">
         <div
           class="flex min-h-full items-center justify-center p-4 text-center"
         >
           <TransitionChild
             as="template"
-            enter="duration-300 ease-out"
-            leave="duration-200 ease-in"
+            leave="animate-sd"
           >
             <DialogPanel
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
