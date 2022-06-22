@@ -22,6 +22,18 @@
 
   <pre>
       <code>
+class Example
+{
+    public function __construct()
+    {
+        //
+    }
+}
+    </code>
+  </pre>
+
+  <pre>
+      <code>
 class ExampleAgain
 {
     public function __construct()
@@ -133,13 +145,18 @@ class ExampleAgain
 </template>
 
 <script setup>
-import hljs from 'highlight.js'
-import "highlight.js/styles/github-dark.css"
+import 'highlight.js/styles/github-dark.css'
+import hljs from 'highlight.js/lib/core'
+import php from 'highlight.js/lib/languages/php'
 
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 import { onMounted, ref } from "vue";
 
-onMounted(() => hljs.highlightAll())
+hljs.registerLanguage("php", php)
+
+onMounted(() => {
+  hljs.highlightAll()
+})
 
 const isOpen = ref(false)
 
