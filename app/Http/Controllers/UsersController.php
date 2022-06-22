@@ -33,6 +33,13 @@ class UsersController extends Controller
             ->withViewData(['description' => 'Users page description']);
     }
 
+    public function show(User $user)
+    {
+        return Inertia::render('Users/Show', [
+            'user' => $user
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Users/Create');

@@ -24,7 +24,7 @@
               <tbody class="divide-y divide-slate-200 bg-white">
               <tr v-for="user in users.data" :key="user.id">
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">
-                  {{ user.name }}
+                  <Link :href="`/users/${user.id}`" class="hover:underline">{{ user.name }}</Link>
                 </td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <Link v-if="user.can.edit" :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">

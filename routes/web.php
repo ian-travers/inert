@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
             Route::get('', 'index');
             Route::get('create', 'create')->can('create', User::class);
             Route::post('', 'store');
+            Route::get('{user}', 'show');
         });
 
     Route::get('/settings', function () {
