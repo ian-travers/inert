@@ -145,17 +145,13 @@ class ExampleAgain
 </template>
 
 <script setup>
-import 'highlight.js/styles/github-dark.css'
-import hljs from 'highlight.js/lib/core'
-import php from 'highlight.js/lib/languages/php'
-
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 import { onMounted, ref } from "vue";
 
-hljs.registerLanguage("php", php)
+import { highlight } from "@/Services/SyntaxHighlighting";
 
 onMounted(() => {
-  hljs.highlightAll()
+  highlight()
 })
 
 const isOpen = ref(false)
