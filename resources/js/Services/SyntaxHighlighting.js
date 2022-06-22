@@ -11,7 +11,9 @@ export function highlight(selector) {
     return
   }
 
-  document.querySelectorAll(selector + ' pre code').forEach(el => {
-    hljs.highlightElement(el)
-  })
+  document.querySelectorAll(selector + ' pre code').forEach(highlightElement)
+}
+
+export function highlightElement(el) {
+  hljs.highlightElement(el)
 }

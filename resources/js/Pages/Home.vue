@@ -34,7 +34,7 @@ class Example
 
   <div id="example2">
     <pre>
-      <code>
+      <code ref="example3">
 class ExampleAgain
 {
     public function __construct()
@@ -151,10 +151,12 @@ class ExampleAgain
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 import { onMounted, ref } from "vue";
 
-import { highlight } from "@/Services/SyntaxHighlighting";
+import { highlightElement } from "@/Services/SyntaxHighlighting";
+
+const example3 = ref(null)
 
 onMounted(() => {
-  highlight()
+  highlightElement(example3.value)
 })
 
 const isOpen = ref(false)
