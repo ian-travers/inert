@@ -13,7 +13,12 @@ class UsersController extends Controller
     public function index()
     {
         return Inertia::render('Users/Index', [
-            'users' => UserResource::collection(User::paginate()->withQueryString()),
+            'users' => UserResource::collection(User::query()
+                ->when(Request::input('search'), function ($query, $search) {
+                    $query->where('name', 'like', "%{$search}%");
+                })
+                ->paginate()
+                ->withQueryString()),
             'filters' => Request::only(['search']),
             'can' => [
                 'createUser' => Auth::user()->can('create', User::class)
