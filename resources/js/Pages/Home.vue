@@ -9,9 +9,6 @@
   </Head>
 
   <h1 class="text-3xl dark:text-sky-400">Home</h1>
-  <div class="p-6 border border-2 border-cyan-400 h-12">
-
-  </div>
   <div class="mt-6">
     <h2 class="text-xl dark:text-blue-400">Dialog (Modal)</h2>
     <button
@@ -23,11 +20,26 @@
     </button>
   </div>
 
+  <pre>
+      <code>
+class ExampleAgain
+{
+    public function __construct()
+    {
+        //
+    }
+}
+    </code>
+  </pre>
+
   <div class="max-w-md min-h-max mx-auto bg-gray-50 border border-cyan-400">
     <div class="relative w-full">
-      <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-      <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-      <div class="absolute -bottom-24 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      <div
+        class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div
+        class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      <div
+        class="absolute -bottom-24 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
       <div class="relative m-8 space-y-4">
         <div class="bg-white rounded-lg flex items-center justify-between space-x-8 p-5">
           <div class="flex-1">
@@ -57,10 +69,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="flex flex-col justify-end border border-4 border-amber-300 mt-6 text-blue-400" style="height: 1000px">
-    On the bottom
   </div>
 
   <TransitionRoot appear :show="isOpen" as="template">
@@ -125,8 +133,13 @@
 </template>
 
 <script setup>
+import hljs from 'highlight.js'
+import "highlight.js/styles/github-dark.css"
+
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+onMounted(() => hljs.highlightAll())
 
 const isOpen = ref(false)
 
