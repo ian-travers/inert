@@ -4,11 +4,13 @@ import php from 'highlight.js/lib/languages/php'
 
 hljs.registerLanguage("php", php)
 
-export function highlightAll() {
-  hljs.highlightAll()
-}
-
 export function highlight(selector) {
+  if (!selector) {
+    hljs.highlightAll()
+
+    return
+  }
+
   document.querySelectorAll(selector + ' pre code').forEach(el => {
     hljs.highlightElement(el)
   })

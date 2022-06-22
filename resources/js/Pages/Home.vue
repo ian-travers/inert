@@ -154,7 +154,7 @@ import { onMounted, ref } from "vue";
 import { highlight } from "@/Services/SyntaxHighlighting";
 
 onMounted(() => {
-  highlight('#example2')
+  highlight()
 })
 
 const isOpen = ref(false)
