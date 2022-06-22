@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const theme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
@@ -8,6 +9,13 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        'game-bg': '#105070'
+      },
+      backgroundImage: theme => ({
+        'nfsu-map-dark': "url('/storage/images/olympic-city-map-dark.webp')",
+        'nfsu-map-light': "url('/storage/images/olympic-city-map-light.jpg')",
+      }),
       animation: {
         blob: "blob 7s infinite",
         su: "slide-up .4s linear",

@@ -7,10 +7,13 @@
       head-key="description"
     />
   </Head>
-  <h1 class="text-3xl">Home</h1>
 
+  <h1 class="text-3xl dark:text-sky-400">Home</h1>
+  <div class="p-6 border border-2 border-cyan-400 h-12">
+
+  </div>
   <div class="mt-6">
-    <h2 class="text-xl">Dialog (Modal)</h2>
+    <h2 class="text-xl dark:text-blue-400">Dialog (Modal)</h2>
     <button
       @click="openModal"
       type="button"
@@ -54,6 +57,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="flex flex-col justify-end border border-4 border-amber-300 mt-6 text-blue-400" style="height: 1000px">
+    On the bottom
   </div>
 
   <TransitionRoot appear :show="isOpen" as="template">

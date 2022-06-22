@@ -1,6 +1,9 @@
 <template>
-  <div :class="{'dark': isDark}">
-    <section class="p-6 bg-slate-200 dark:bg-slate-800 dark:text-white transition-colors duration-1000">
+  <div
+    class="relative flex-grow bg-no-repeat bg-cover bg-fixed pb-12"
+    :class="{'dark bg-nfsu-map-dark': isDark, 'bg-nfsu-map-light': !isDark}"
+  >
+    <section class="p-6 bg-slate-200 dark:bg-game-bg dark:text-white transition-colors duration-500">
       <header class="flex items-center justify-between">
         <div class="flex items-baseline">
           <h1 class="text-xl">My App</h1>
