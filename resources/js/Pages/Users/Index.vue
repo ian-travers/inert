@@ -26,8 +26,8 @@
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">
                   {{ user.name }}
                 </td>
-                <td v-if="user.can.edit" class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                  <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">
+                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                  <Link v-if="user.can.edit" :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">
                     Edit
                     <span class="sr-only">, {{ user.name }}</span>
                   </Link>
@@ -47,7 +47,7 @@
 </template>
 
 <script setup>
-import Pagination from "../../Shared/Pagination";
+import Pagination from "@/Shared/Pagination";
 import { ref, watch } from "vue";
 import { Inertia } from "@inertiajs/inertia";
 import debounce from "lodash/debounce";
