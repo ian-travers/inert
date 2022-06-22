@@ -32,7 +32,8 @@ class Example
     </code>
   </pre>
 
-  <pre>
+  <div id="example2">
+    <pre>
       <code>
 class ExampleAgain
 {
@@ -41,8 +42,10 @@ class ExampleAgain
         //
     }
 }
-    </code>
-  </pre>
+      </code>
+    </pre>
+  </div>
+
 
   <div class="max-w-md min-h-max mx-auto bg-gray-50 border border-cyan-400">
     <div class="relative w-full">
@@ -151,7 +154,7 @@ import { onMounted, ref } from "vue";
 import { highlight } from "@/Services/SyntaxHighlighting";
 
 onMounted(() => {
-  highlight()
+  highlight('#example2')
 })
 
 const isOpen = ref(false)
