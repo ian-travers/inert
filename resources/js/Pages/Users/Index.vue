@@ -42,7 +42,7 @@
   </div>
   <!-- paginator -->
   <div class="mt-6">
-    <Pagination :links="users.links"/>
+    <Pagination :links="users.meta.links"/>
   </div>
 </template>
 
