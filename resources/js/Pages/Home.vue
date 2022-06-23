@@ -20,7 +20,7 @@
     </button>
   </div>
 
-  <Highlight :code="snippet"/>
+  <Highlight :code="snippet" class="mt-6"/>
 
   <div id="example2">
     <pre>
