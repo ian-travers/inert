@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="bg-gray-800 text-gray-50 flex justify-end border-b border-gray-700 text-sm px-2 py-1">
-      <button class="hover:bg-gray-600 rounded px-2">
+      <button class="hover:bg-gray-600 rounded px-2" @click="copyToClipboard">
         {{ copied ? 'Copied!' : 'Copy' }}
       </button>
     </header>
@@ -13,11 +13,16 @@
 import { highlightElement } from "@/Services/SyntaxHighlighting";
 import { defineProps, onMounted, ref } from "vue";
 
-defineProps({
+let props = defineProps({
   code: String
 })
 
 let block = ref(null)
+
+let copyToClipboard = () => {
+  navigator.clipboard.writeText(props.code)
+  alert('Copied!')
+}
 
 onMounted(() => highlightElement(block.value))
 </script>
