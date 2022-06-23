@@ -18,11 +18,16 @@ let props = defineProps({
 })
 
 let block = ref(null)
+let copied = ref(false)
 
 let copyToClipboard = () => {
   if (navigator && navigator.clipboard) {
     navigator.clipboard.writeText(props.code)
-    alert('Copied!')
+    copied.value = true
+
+    setTimeout(() => {
+      copied.value = false
+    }, 3000)
 
     return
   }
