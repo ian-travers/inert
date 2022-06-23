@@ -20,8 +20,14 @@ let props = defineProps({
 let block = ref(null)
 
 let copyToClipboard = () => {
-  navigator.clipboard.writeText(props.code)
-  alert('Copied!')
+  if (navigator && navigator.clipboard) {
+    navigator.clipboard.writeText(props.code)
+    alert('Copied!')
+
+    return
+  }
+
+  alert('Apologies, your browser does not support the Clipboard API')
 }
 
 onMounted(() => highlightElement(block.value))
