@@ -20,17 +20,7 @@
     </button>
   </div>
 
-  <pre>
-      <code>
-class Example
-{
-    public function __construct()
-    {
-        //
-    }
-}
-    </code>
-  </pre>
+  <Highlight :code="snippet"/>
 
   <div id="example2">
     <pre>
@@ -148,16 +138,9 @@ class ExampleAgain
 </template>
 
 <script setup>
+import { ref } from "vue"
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
-import { onMounted, ref } from "vue";
-
-import { highlightElement } from "@/Services/SyntaxHighlighting";
-
-const example3 = ref(null)
-
-onMounted(() => {
-  highlightElement(example3.value)
-})
+import Highlight from "@/Components/Highlight";
 
 const isOpen = ref(false)
 
@@ -168,4 +151,15 @@ function closeModal() {
 function openModal() {
   isOpen.value = true
 }
+
+let snippet = `
+class Example
+{
+    public function __construct()
+    {
+        //
+    }
+}
+`.trim()
+
 </script>
