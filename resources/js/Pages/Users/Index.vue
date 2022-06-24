@@ -51,7 +51,7 @@ import Pagination from "@/Shared/Pagination"
 import { onMounted, ref, watch } from "vue"
 import { Inertia } from "@inertiajs/inertia"
 import debounce from "lodash/debounce"
-import User from '@/Models/User'
+import { useCurrentUser } from "@/Composables/useCurrentUser"
 
 let props = defineProps({
   users: Object,
@@ -66,6 +66,6 @@ watch(search, debounce(value => {
 }, 300))
 
 onMounted(() => {
-  console.log(new User(Inertia.page.props.auth.user))
+  console.log(useCurrentUser())
 })
 </script>
