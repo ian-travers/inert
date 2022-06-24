@@ -48,7 +48,7 @@
 
 <script setup>
 import Pagination from "@/Shared/Pagination";
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { Inertia } from "@inertiajs/inertia";
 import debounce from "lodash/debounce";
 
@@ -64,4 +64,7 @@ watch(search, debounce(value => {
   Inertia.get('/users', { search: value }, { preserveState: true, replace: true })
 }, 300))
 
+onMounted(() => {
+  console.log(Inertia.page.props.auth.user)
+})
 </script>
