@@ -7,7 +7,10 @@
       <header class="flex items-center justify-between">
         <div class="flex items-baseline">
           <h1 class="text-xl">My App</h1>
-          <p class="text-sm ml-2">Welcome back, {{ username }}</p>
+          <p class="text-sm ml-2">
+            Welcome back, {{ username }}
+            <span class="text-purple-600 ml-4">Latest Thread: <Link href="#" v-text="$page.props.latestThread.title"></Link></span>
+          </p>
         </div>
         <div class="flex items-center">
           <Nav/>

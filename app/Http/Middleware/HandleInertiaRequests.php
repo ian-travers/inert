@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\ThreadResource;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
@@ -43,7 +45,9 @@ class HandleInertiaRequests extends Middleware
                     'username' => Auth::check() ? Auth::user()->name : 'GUEST',
                     'id' => Auth::check() ? Auth::id() : 'GUEST',
                 ]
-            ]
+            ],
+
+            'latestThread' => ThreadResource::make(Thread::latest()->first())->only('title'),
         ]);
     }
 }
