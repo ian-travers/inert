@@ -9,28 +9,15 @@
   </Head>
 
   <h1 class="text-3xl dark:text-sky-400">Home</h1>
-  <div class="flex mt-6">
-    <div>
-      <h2 class="text-xl dark:text-blue-400">Dialog (Modal)</h2>
-      <button
-        @click="openModal"
-        type="button"
-        class="bg-cyan-700 hover:bg-cyan-600 text-white transition rounded-lg px-3 py-1.5 mt-2"
-      >
-        Open Modal
-      </button>
-    </div>
-
-    <div>
-      <h2 class="text-xl dark:text-blue-400">Dialog (Headless UI Example)</h2>
-      <button
-        @click="openModalHD"
-        type="button"
-        class="bg-cyan-700 hover:bg-cyan-600 text-white transition rounded-lg px-3 py-1.5 mt-2"
-      >
-        Open Modal
-      </button>
-    </div>
+  <div>
+    <h2 class="text-xl dark:text-blue-400">Dialog (Headless UI Example)</h2>
+    <button
+      @click="openModal"
+      type="button"
+      class="bg-cyan-700 hover:bg-cyan-600 text-white transition rounded-lg px-3 py-1.5 mt-2"
+    >
+      Open Modal
+    </button>
   </div>
 
   <Highlight :code="snippet" class="mt-6"/>
@@ -93,74 +80,14 @@ class ExampleAgain
     <Dialog as="div" @close="closeModal" class="relative z-10">
       <TransitionChild
         as="template"
-        enter="duration-300 ease-out"
+        enter="duration-1000 ease-out"
         enter-from="opacity-0"
         enter-to="opacity-100"
-        leave="duration-200 ease-in"
+        leave="duration-1000 ease-in"
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-0 bg-black bg-opacity-40"/>
-      </TransitionChild>
-
-      <div class="fixed inset-0 overflow-y-auto animate-su">
-        <div
-          class="flex min-h-full items-center justify-center p-4 text-center"
-        >
-          <TransitionChild
-            as="template"
-            leave="animate-sd"
-          >
-            <DialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
-            >
-              <button
-                class="absolute right-3 top-2 rounded-md px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                @click="closeModal"
-              >
-                &#x2715
-              </button>
-              <DialogTitle
-                as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
-              >
-                Payment successful
-              </DialogTitle>
-              <div class="mt-2">
-                <p class="text-sm text-gray-500">
-                  Your payment has been successfully submitted. We’ve sent you
-                  an email with all of the details of your order.
-                </p>
-              </div>
-
-              <div class="mt-4">
-                <button
-                  type="button"
-                  class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                  @click="closeModal"
-                >
-                  Got it, thanks!
-                </button>
-              </div>
-            </DialogPanel>
-          </TransitionChild>
-        </div>
-      </div>
-    </Dialog>
-  </TransitionRoot>
-
-  <TransitionRoot appear :show="isOpenHD" as="template">
-    <Dialog as="div" @close="closeModalHD" class="relative z-10">
-      <TransitionChild
-        as="template"
-        enter="duration-300 ease-out"
-        enter-from="opacity-0"
-        enter-to="opacity-100"
-        leave="duration-200 ease-in"
-        leave-from="opacity-100"
-        leave-to="opacity-0"
-      >
-        <div class="fixed inset-0 bg-black bg-opacity-25"/>
+        <div class="fixed inset-0 bg-black bg-opacity-50"/>
       </TransitionChild>
 
       <div class="fixed inset-0 overflow-y-auto">
@@ -169,12 +96,12 @@ class ExampleAgain
         >
           <TransitionChild
             as="template"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0 scale-95"
-            enter-to="opacity-100 scale-100"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100 scale-100"
-            leave-to="opacity-0 scale-95"
+            enter="duration-1000 ease-out"
+            enter-from="opacity-75 translate-y-full"
+            enter-to="opacity-100 translate-y-0"
+            leave="duration-1000 ease-in"
+            leave-from="opacity-100 translate-y-0"
+            leave-to="opacity-75 translate-y-full"
           >
             <DialogPanel
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
@@ -215,7 +142,6 @@ import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } fro
 import Highlight from "@/Components/Highlight";
 
 const isOpen = ref(false)
-const isOpenHD = ref(false)
 
 function closeModal() {
   isOpen.value = false
@@ -223,14 +149,6 @@ function closeModal() {
 
 function openModal() {
   isOpen.value = true
-}
-
-function closeModalHD() {
-  isOpenHD.value = false
-}
-
-function openModalHD() {
-  isOpenHD.value = true
 }
 
 let snippet = `
