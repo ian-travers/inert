@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'game-bg': '#105070'
+        'game-brand': '#105070',
       },
       backgroundImage: theme => ({
         'nfsu-map-dark': "url('/storage/images/olympic-city-map-dark.webp')",

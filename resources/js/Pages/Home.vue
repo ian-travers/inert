@@ -10,14 +10,14 @@
 
   <h1 class="text-3xl dark:text-sky-400">Home</h1>
   <div>
-    <h2 class="text-xl dark:text-blue-400">Dialog (Headless UI Example)</h2>
-    <button
-      @click="openModal"
-      type="button"
-      class="bg-cyan-700 hover:bg-cyan-600 text-white transition rounded-lg px-3 py-1.5 mt-2"
+    <h2 class="text-xl dark:text-sky-400">Dialog (Headless UI Example)</h2>
+    <Modal
+      title="A new modal title"
+      type="primary"
+      action="Save"
     >
-      Open Modal
-    </button>
+      Content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aut blanditiis cum deleniti dolor dolorem eius enim illo inventore minima, minus nesciunt provident quae quod sequi totam ut vero. Adipisci amet assumenda autem consectetur dolor earum excepturi illo ipsum magni modi non omnis porro quibusdam repudiandae tempore, temporibus voluptates! Deserunt enim iure veniam voluptas.
+    </Modal>
   </div>
 
   <Highlight :code="snippet" class="mt-6"/>
@@ -76,80 +76,12 @@ class ExampleAgain
     </div>
   </div>
 
-  <TransitionRoot appear :show="isOpen" as="template">
-    <Dialog as="div" @close="closeModal" class="relative z-10">
-      <TransitionChild
-        as="template"
-        enter="duration-1000 ease-out"
-        enter-from="opacity-0"
-        enter-to="opacity-100"
-        leave="duration-1000 ease-in"
-        leave-from="opacity-100"
-        leave-to="opacity-0"
-      >
-        <div class="fixed inset-0 bg-black bg-opacity-50"/>
-      </TransitionChild>
 
-      <div class="fixed inset-0 overflow-y-auto">
-        <div
-          class="flex min-h-full items-center justify-center p-4 text-center"
-        >
-          <TransitionChild
-            as="template"
-            enter="duration-1000 ease-out"
-            enter-from="opacity-75 translate-y-full"
-            enter-to="opacity-100 translate-y-0"
-            leave="duration-1000 ease-in"
-            leave-from="opacity-100 translate-y-0"
-            leave-to="opacity-75 translate-y-full"
-          >
-            <DialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
-            >
-              <DialogTitle
-                as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
-              >
-                Payment successful
-              </DialogTitle>
-              <div class="mt-2">
-                <p class="text-sm text-gray-500">
-                  Your payment has been successfully submitted. We’ve sent you
-                  an email with all of the details of your order.
-                </p>
-              </div>
-
-              <div class="mt-4">
-                <button
-                  type="button"
-                  class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                  @click="closeModal"
-                >
-                  Got it, thanks!
-                </button>
-              </div>
-            </DialogPanel>
-          </TransitionChild>
-        </div>
-      </div>
-    </Dialog>
-  </TransitionRoot>
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 import Highlight from "@/Components/Highlight";
-
-const isOpen = ref(false)
-
-function closeModal() {
-  isOpen.value = false
-}
-
-function openModal() {
-  isOpen.value = true
-}
+import Modal from "@/Components/Modal";
 
 let snippet = `
 class Example
@@ -160,5 +92,4 @@ class Example
     }
 }
 `.trim()
-
 </script>

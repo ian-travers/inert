@@ -1,4 +1,4 @@
-import { createApp, h } from 'vue'
+import { createApp, h, ref } from 'vue'
 import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
 import Layout from './Shared/Layout'
@@ -20,6 +20,7 @@ createInertiaApp({
       .use(plugin)
       .component("Head", Head)
       .component("Link", Link)
+      .provide('isDark', ref(false))
       .mount(el)
   },
   title: title => `My App: ${title}`
