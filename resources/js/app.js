@@ -20,7 +20,7 @@ createInertiaApp({
       .use(plugin)
       .component("Head", Head)
       .component("Link", Link)
-      .provide('isDark', ref(false))
+      .provide('isDark', ref(true))
       .mount(el)
   },
   title: title => `My App: ${title}`

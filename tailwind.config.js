@@ -18,6 +18,7 @@ module.exports = {
       }),
       animation: {
         blob: "blob 7s infinite",
+        blinking: 'blinking .6s cubic-bezier(0.4, 0, 0.6, 1) infinite'
       },
       keyframes: {
         blob: {
@@ -32,9 +33,14 @@ module.exports = {
           },
           "100%": {
             transform: "translate(0px, 0px) scale(1)",
-          }
+          },
         },
-      }
+        blinking: {
+          '50%': {
+            opacity: '.7',
+          },
+        },
+      },
     },
   },
   plugins: [],

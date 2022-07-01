@@ -20,6 +20,12 @@
     </Modal>
   </div>
 
+  <div class="mt-6 flex flex-col space-y-4">
+    <BrandButton>Competitions</BrandButton>
+    <BrandButton>Tourneys</BrandButton>
+    <BrandButton>Go Underground</BrandButton>
+  </div>
+
   <Highlight :code="snippet" class="mt-6"/>
 
   <div id="example2">
@@ -82,6 +88,8 @@ class ExampleAgain
 <script setup>
 import Highlight from "@/Components/Highlight";
 import Modal from "@/Components/Modal";
+import BrandButton from "@/Components/Buttons/BrandButton";
+
 
 let snippet = `
 class Example
