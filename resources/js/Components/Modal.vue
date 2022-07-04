@@ -4,7 +4,7 @@
     type="button"
     class="bg-cyan-700 hover:bg-cyan-600 text-white transition rounded-lg px-3 py-1.5 mt-2"
   >
-    Open Modal Component
+    {{ activatorTitle }}
   </button>
 
   <TransitionRoot appear :show="isOpen" as="template">
@@ -80,6 +80,7 @@ import { inject, ref } from "vue"
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle } from '@headlessui/vue'
 
 defineProps({
+  activatorTitle: String,
   title: String,
   type: String,
   action: String

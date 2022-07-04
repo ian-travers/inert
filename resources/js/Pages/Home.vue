@@ -12,6 +12,7 @@
   <div>
     <h2 class="text-xl dark:text-sky-400">Dialog (Headless UI Example)</h2>
     <Modal
+      activator-title="Modal Launcher"
       title="A new modal title"
       type="danger"
       action="Save"
