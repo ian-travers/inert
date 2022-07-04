@@ -13,7 +13,7 @@
     <h2 class="text-xl dark:text-sky-400">Dialog (Headless UI Example)</h2>
     <Modal
       title="A new modal title"
-      type="primary"
+      type="danger"
       action="Save"
     >
       Content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aut blanditiis cum deleniti dolor dolorem eius enim illo inventore minima, minus nesciunt provident quae quod sequi totam ut vero. Adipisci amet assumenda autem consectetur dolor earum excepturi illo ipsum magni modi non omnis porro quibusdam repudiandae tempore, temporibus voluptates! Deserunt enim iure veniam voluptas.

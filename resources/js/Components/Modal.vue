@@ -11,10 +11,10 @@
     <Dialog as="div" @close="closeModal" class="relative z-10" :class="{'dark': isDark}">
       <TransitionChild
         as="template"
-        enter="duration-1000 ease-out"
+        enter="duration-200 ease-linear"
         enter-from="opacity-0"
         enter-to="opacity-100"
-        leave="duration-1000 ease-in"
+        leave="duration-150 ease-linear"
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
@@ -27,15 +27,15 @@
         >
           <TransitionChild
             as="template"
-            enter="duration-1000 ease-out"
+            enter="duration-200 ease-linear"
             enter-from="translate-y-full"
             enter-to="translate-y-0"
-            leave="duration-1000 ease-in"
+            leave="duration-150 ease-linear"
             leave-from="translate-y-0"
             leave-to="translate-y-full"
           >
             <DialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-2xl p-6 bg-white dark:bg-game-brand text-left align-middle shadow-xl transition-all"
+              class="w-full max-w-md overflow-hidden rounded-2xl p-6 bg-white dark:bg-game-brand text-left align-middle shadow-xl"
             >
               <header class="flex justify-between items-center">
                 <DialogTitle as="h3" class="text-xl font-semibold leading-6 text-stone-900 dark:text-stone-200">
@@ -60,7 +60,7 @@
                   <button
                     type="button"
                     class="rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-                    :class="{'bg-sky-500 hover:bg-sky-600 focus-visible:ring-sky-600': type==='primary'}"
+                    :class="{'bg-sky-500 hover:bg-sky-600 focus-visible:ring-sky-600': type==='primary', 'bg-yellow-600 hover:bg-yellow-700 focus-visible:ring-yellow-600': type==='warning', 'bg-red-600 hover:bg-red-700 focus-visible:ring-red-600': type==='danger'}"
                     @click="closeModal"
                   >
                     {{ action }}
