@@ -25,6 +25,20 @@
     </Modal>
   </div>
 
+  <div class="mt-8 flex items-end space-x-1">
+    <GenericButton size="large">Primary Large</GenericButton>
+    <GenericButton>Primary Default</GenericButton>
+    <GenericButton size="small">Primary Small</GenericButton>
+
+    <GenericButton type="warning" size="large">Warning Large</GenericButton>
+    <GenericButton type="warning">Warning Default</GenericButton>
+    <GenericButton type="warning" size="small">Warning Small</GenericButton>
+
+    <GenericButton type="danger" size="large">Danger Large</GenericButton>
+    <GenericButton type="danger">Danger Default</GenericButton>
+    <GenericButton type="danger" size="small" disabled>Danger Small</GenericButton>
+  </div>
+
   <div class="mt-6 flex flex-col space-y-4">
     <BrandButton>Competitions</BrandButton>
     <BrandButton>Tourneys</BrandButton>
@@ -94,6 +108,7 @@ class ExampleAgain
 import Highlight from "@/Components/Highlight";
 import Modal from "@/Components/Modal";
 import BrandButton from "@/Components/Buttons/BrandButton";
+import GenericButton from "@/Components/Buttons/GenericButton";
 
 
 let snippet = `
