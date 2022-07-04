@@ -21,7 +21,7 @@
         <div class="fixed inset-0 bg-black/50" aria-hidden="true"/>
       </TransitionChild>
 
-      <div class="fixed inset-0 overflow-y-auto">
+      <div class="fixed inset-0 overflow-y-hidden">
         <div
           class="flex min-h-full items-center justify-center p-4 text-center"
         >
@@ -44,10 +44,8 @@
                 <button type="button" @click="closeModal" class="rounded-md text-stone-900 dark:text-stone-200 px-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-600 focus-visible:ring-offset-2">&#10005</button>
               </header>
 
-              <div class="mt-2">
-                <p class="text-stone-900 dark:text-stone-200">
-                  <slot></slot>
-                </p>
+              <div class="mt-2 text-stone-900 dark:text-stone-200 max-h-96 overflow-y-auto">
+                <slot></slot>
               </div>
 
               <div class="mt-4">
