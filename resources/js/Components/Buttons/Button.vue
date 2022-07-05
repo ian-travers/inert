@@ -66,8 +66,6 @@ onMounted(() => {
     }
   }
 })
+
+defineExpose({ processing })
 </script>
-
-<style scoped>
-
-</style>

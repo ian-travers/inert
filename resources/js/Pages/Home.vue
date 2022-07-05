@@ -17,26 +17,36 @@
       type="danger"
       action="Save"
     >
-      Content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aut blanditiis cum deleniti dolor dolorem eius enim illo inventore minima, minus nesciunt provident quae quod sequi totam ut vero. Adipisci amet assumenda autem consectetur dolor earum excepturi illo ipsum magni modi non omnis porro quibusdam repudiandae tempore, temporibus voluptates! Deserunt enim iure veniam voluptas.
+      Content: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam aut blanditiis cum deleniti dolor
+      dolorem eius enim illo inventore minima, minus nesciunt provident quae quod sequi totam ut vero. Adipisci amet
+      assumenda autem consectetur dolor earum excepturi illo ipsum magni modi non omnis porro quibusdam repudiandae
+      tempore, temporibus voluptates! Deserunt enim iure veniam voluptas.
 
-      <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aut, culpa dicta dolorum exercitationem facilis iure laborum officia perferendis reprehenderit veniam voluptas.</p>
-      <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad assumenda cum dolor, est facilis inventore ipsum nemo odit, perspiciatis quae quisquam, sapiente tempora voluptate voluptatibus. At dicta dolores, eum praesentium quas rerum!</p>
-      <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto, assumenda consectetur consequatur dignissimos distinctio dolorum earum nulla, odio omnis provident quasi quod repellendus sapiente tempora? Doloremque eius explicabo nobis sint! Accusantium alias animi cum debitis est, fuga, ipsum iusto laboriosam nemo obcaecati odit perferendis perspiciatis praesentium quaerat, quia quibusdam quis recusandae rem rerum vel.</p>
+      <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aut, culpa dicta dolorum
+        exercitationem facilis iure laborum officia perferendis reprehenderit veniam voluptas.</p>
+      <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad assumenda cum dolor, est facilis
+        inventore ipsum nemo odit, perspiciatis quae quisquam, sapiente tempora voluptate voluptatibus. At dicta
+        dolores, eum praesentium quas rerum!</p>
+      <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto, assumenda
+        consectetur consequatur dignissimos distinctio dolorum earum nulla, odio omnis provident quasi quod repellendus
+        sapiente tempora? Doloremque eius explicabo nobis sint! Accusantium alias animi cum debitis est, fuga, ipsum
+        iusto laboriosam nemo obcaecati odit perferendis perspiciatis praesentium quaerat, quia quibusdam quis
+        recusandae rem rerum vel.</p>
     </Modal>
   </div>
 
   <div class="mt-8 flex items-end space-x-1">
-    <GenericButton size="large">Primary Large</GenericButton>
-    <GenericButton>Primary Default</GenericButton>
-    <GenericButton size="small">Primary Small</GenericButton>
+    <Button size="large" ref="btnPrimary" @click="emulateSubmitPrimary">Primary Large</Button>
+    <Button>Primary Default</Button>
+    <Button size="small">Primary Small</Button>
 
-    <GenericButton type="warning" size="large">Warning Large</GenericButton>
-    <GenericButton type="warning">Warning Default</GenericButton>
-    <GenericButton type="warning" size="small">Warning Small</GenericButton>
+    <Button type="warning" ref="btnWarning" @click="emulateSubmitWarning" size="large">Warning Large</Button>
+    <Button type="warning">Warning Default</Button>
+    <Button type="warning" size="small">Warning Small</Button>
 
-    <GenericButton type="danger" size="large">Danger Large</GenericButton>
-    <GenericButton type="danger">Danger Default</GenericButton>
-    <GenericButton type="danger" size="small" disabled>Danger Small</GenericButton>
+    <Button type="danger" size="large">Danger Large</Button>
+    <Button type="danger">Danger Default</Button>
+    <Button type="danger" size="small" disabled>Danger Small</Button>
   </div>
 
   <div class="mt-6 flex flex-col space-y-4">
@@ -105,11 +115,30 @@ class ExampleAgain
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import Highlight from "@/Components/Highlight";
 import Modal from "@/Components/Modal";
 import BrandButton from "@/Components/Buttons/BrandButton";
-import GenericButton from "@/Components/Buttons/GenericButton";
+import Button from "@/Components/Buttons/Button";
 
+const btnPrimary = ref(null)
+const btnWarning = ref(null)
+
+let emulateSubmitPrimary = () => {
+  if (btnPrimary.value) {
+    btnPrimary.value.processing = true
+
+    setTimeout(() => btnPrimary.value.processing = false, 2000)
+  }
+}
+
+let emulateSubmitWarning = () => {
+  if (btnWarning.value) {
+    btnWarning.value.processing = true
+
+    setTimeout(() => btnWarning.value.processing = false, 2000)
+  }
+}
 
 let snippet = `
 class Example
